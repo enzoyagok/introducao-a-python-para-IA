@@ -98,7 +98,7 @@ Identifique que tipo o cliente é: básico(sem desconto) ou vip
 
 ### 🔴 Alto
 Adicione:
-- Cliente VIP (S/N) ganha +5% de desconto  
+- Cliente VIP ganha +5% de desconto  
 - Mostrar valor final com desconto  
 
 ---

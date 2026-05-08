@@ -82,7 +82,7 @@ Adicione:
 
 ## 🛒 3. Sistema de Compra com Desconto
 O usuário informa o valor e a quantidade de 5 produtos, calcule o valor final e aplique desconto.
-Identifique que tipo o cliente é: básico(sem desconto) ou vip
+
 ### 🟢 Básico
 - ≥ 100 → 10% de desconto
 - < 100 → sem desconto
@@ -95,7 +95,7 @@ Identifique que tipo o cliente é: básico(sem desconto) ou vip
 - < 100 → 0%
 
 ---
-
+Identifique que tipo o cliente é: básico(sem desconto) ou vip
 ### 🔴 Alto
 Adicione:
 - Cliente VIP ganha +5% de desconto  

@@ -1,4 +1,5 @@
 # Lista de Exercícios — Listas (Arrays) em Python 🐍
+# Gabarito https://colab.research.google.com/drive/1B9UvENOsHY4mUoqxZKPgbYqs15dgpe1N?usp=sharing
 
 ## 📘 Nível 1 — Introdução às Listas
 

@@ -416,29 +416,254 @@ Pedro,40,5000
 
 ---
 
+# 9.1 Como Carregar Arquivos CSV no Google Colab
+
+
+```python
+df = pd.read_csv("arquivo.csv")
+```
+
+Mas para isso funcionar, o arquivo precisa estar disponível dentro do ambiente do Colab.
+
+---
+
+# Opção 1 – Enviar Arquivo do Computador
+
+Esta é a forma mais simples para iniciantes.
+
+Execute:
+
+```python
+from google.colab import files
+
+uploaded = files.upload()
+```
+
+Ao executar a célula aparecerá um botão:
+
+```text
+Escolher arquivos
+```
+
+Selecione o arquivo CSV do seu computador.
+
+Exemplo:
+
+```text
+alunos.csv
+```
+
+Após o upload, o Colab exibirá algo semelhante a:
+
+```text
+Saving alunos.csv to alunos.csv
+```
+
+Agora o arquivo já está disponível para uso.
+
+---
+
 ## Lendo o arquivo
 
 ```python
 import pandas as pd
 
-df = pd.read_csv("arquivo.csv")
+df = pd.read_csv("alunos.csv")
 
 print(df)
 ```
 
 ---
 
-# Explicando o read_csv()
+# Verificando se o arquivo foi carregado
 
-### read
+Você pode listar os arquivos disponíveis:
 
-Ler
+```python
+import os
 
-### csv
+print(os.listdir())
+```
 
-Arquivo CSV
+Exemplo de saída:
+
+```text
+['alunos.csv']
+```
 
 ---
+
+# Opção 2 – Utilizando Arquivos do Google Drive
+
+Quando trabalhamos com projetos maiores, é comum armazenar datasets no Google Drive.
+
+---
+
+## Conectando o Drive
+
+```python
+from google.colab import drive
+
+drive.mount('/content/drive')
+```
+
+Ao executar:
+
+1. Clique no link exibido.
+2. Faça login.
+3. Copie o código de autorização.
+4. Cole no Colab.
+
+---
+
+## Acessando o arquivo
+
+Suponha que o arquivo esteja em:
+
+```text
+Meu Drive
+└── MachineLearning
+    └── alunos.csv
+```
+
+O caminho será:
+
+```python
+import pandas as pd
+
+df = pd.read_csv(
+    "/content/drive/MyDrive/MachineLearning/alunos.csv"
+)
+
+print(df)
+```
+
+---
+
+# Descobrindo o Caminho do Arquivo
+
+Após montar o Drive, clique no ícone da pasta à esquerda do Colab.
+
+Você verá algo semelhante a:
+
+```text
+content
+└── drive
+    └── MyDrive
+```
+
+Navegue até o arquivo.
+
+Clique nos três pontos ao lado do arquivo e escolha:
+
+```text
+Copiar caminho
+```
+
+Cole diretamente no código:
+
+```python
+df = pd.read_csv("CAMINHO_COPIADO")
+```
+
+---
+
+# Exercício Prático
+
+Crie uma planilha no Google Planilhas com os dados:
+
+| Nome  | Idade | Nota |
+| ----- | ----- | ---- |
+| Ana   | 18    | 8    |
+| João  | 17    | 7    |
+| Maria | 19    | 10   |
+| Pedro | 18    | 6    |
+
+---
+
+## Passo 1
+
+Baixe a planilha em formato CSV.
+
+```text
+Arquivo → Fazer download → Valores separados por vírgula (.csv)
+```
+
+---
+
+## Passo 2
+
+Faça upload para o Colab.
+
+---
+
+## Passo 3
+
+Carregue os dados utilizando:
+
+```python
+import pandas as pd
+
+df = pd.read_csv("nome_do_arquivo.csv")
+
+print(df)
+```
+
+---
+
+## Passo 4
+
+Mostre as cinco primeiras linhas:
+
+```python
+df.head()
+```
+
+---
+
+## Passo 5
+
+Mostre informações da tabela:
+
+```python
+df.info()
+```
+
+---
+
+# Desafio
+
+Após carregar o arquivo, responda:
+
+1. Quantos registros existem?
+2. Qual a média das notas?
+3. Qual o aluno com a maior nota?
+4. Quantos alunos possuem nota maior ou igual a 7?
+
+Dica:
+
+```python
+df.describe()
+```
+
+e
+
+```python
+df[df["Nota"] >= 7]
+```
+
+ajudarão a responder essas perguntas.
+
+---
+
+### Observação Importante
+
+No Google Colab, os arquivos enviados pelo upload ficam disponíveis **somente durante a sessão atual**. Se o ambiente for reiniciado, será necessário enviar o arquivo novamente.
+
+Por isso, em projetos maiores, normalmente utilizamos o **Google Drive**, que mantém os arquivos armazenados permanentemente.
+
+---
+
 
 # 10. Visualizando Dados
 
